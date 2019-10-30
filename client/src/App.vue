@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <h1>Harry Potter Hotel Booking Tool</h1>
     <bookings-form />
     <bookings-grid :bookings="bookings" />
   </div>
@@ -25,10 +26,14 @@ export default {
     this.fetchData();
 
     eventBus.$on('booking-added', booking => this.bookings.push(booking));
+
     eventBus.$on('booking-deleted', id => {
       const index = this.bookings.findIndex(booking => booking._id === id);
       this.bookings.splice(index, 1)
-    })
+    });
+    eventBus.$on('booking-updated', booking => {
+      console.log("hello from the eventBus");
+    });
   },
   methods: {
     fetchData(){
@@ -41,11 +46,15 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #ffd342;
   margin-top: 60px;
+  text-shadow: 2px 2px #4a32a8;
+}
+html {
+  background-color: #8f2621;
 }
 </style>

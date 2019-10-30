@@ -3,15 +3,11 @@
     <h2>Add a Booking</h2>
     <div class="formWrap">
       <label for="name">Name:</label>
-      <input type="text" id="name" v-model="name">
+      <input type="text" id="name" v-model="name" required/>
     </div>
     <div class="formWrap">
       <label for="email">Email:</label>
-      <input type="text" id="email" v-model="email">
-    </div>
-    <div class="formWrap">
-      <label for="isCheckedIn">Checked In?:</label>
-      <input type="text" id="isCheckedIn" v-model="isCheckedIn">
+      <input type="text" id="email" v-model="email" required/>
     </div>
 
     <input type="submit" value="Save Booking" id="save"/>
@@ -28,7 +24,7 @@ export default {
     return {
       name: "",
       email: "",
-      isCheckedIn: null
+      isCheckedIn: false
     }
   },
   methods: {
@@ -47,11 +43,18 @@ export default {
       });
       this.name = "";
       this.email = "";
-      this.isCheckedIn = null;
+      this.isCheckedIn = false;
     }
   }
 }
 </script>
 
 <style lang="css" scoped>
+#bookings-form {
+  border: 3px ridge #ffd342;
+  border-radius: 5px;
+  margin: auto;
+  padding: 2px;
+}
+
 </style>
