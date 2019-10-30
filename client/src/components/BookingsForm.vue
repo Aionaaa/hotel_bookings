@@ -45,6 +45,9 @@ export default {
       .then(booking => {
         eventBus.$emit('booking-added', booking);
       });
+      this.name = "";
+      this.email = "";
+      this.isCheckedIn = null;
     }
   }
 }
